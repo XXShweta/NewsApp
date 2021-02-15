@@ -1,0 +1,90 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="position"
+            type="java.lang.Integer" />
+        <variable
+            name="itemClickListener"
+            type="com.newsapp.ui.adapter.NewsAdapter" />
+        <variable
+            name="articleModel"
+            type="com.newsapp.services.model.response.Article" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/newsCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/sixteen_16dp"
+        android:layout_marginTop="@dimen/twelve_12dp"
+        android:layout_marginRight="@dimen/sixteen_16dp"
+        app:cardCornerRadius="@dimen/ten_10dp"
+        app:cardUseCompatPadding="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/news_item"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/two_hundred_200dp"
+            android:background="@drawable/loading_image"
+            android:onClick="@{() -> itemClickListener.onItemClickListener(position)}"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/date_author"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/twelve_12dp"
+                android:paddingRight="@dimen/twelve_12dp"
+                android:layout_marginBottom="@dimen/twelve_12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@+id/author_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@{articleModel.getAuthor()}"
+                    android:visibility='@{articleModel.getAuthor()!= null ? View.VISIBLE : View.GONE }'
+                    style="@style/sp_12_roboto_bold_grey_light"
+                    />
+
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{articleModel.getPublishedAt().substring(0,10)}"
+                    android:visibility='@{articleModel.getPublishedAt()!= null ? View.VISIBLE : View.GONE }'
+                    android:layout_weight="1"
+                    style="@style/sp_12_roboto_regular_grey_light"
+                    />
+            </LinearLayout>
+
+
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/twentyfour_24dp"
+                android:paddingLeft="@dimen/twelve_12dp"
+                android:paddingRight="@dimen/twelve_12dp"
+                android:text="@{articleModel.getTitle()}"
+                app:layout_constraintBottom_toTopOf="@+id/date_author"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.038"
+                app:layout_constraintStart_toStartOf="parent"
+                style="@style/sp_20_roboto_regular_white_light"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">News Tv</string>
+    <string name="action_settings">Settings</string>
+
+<!--
+    toolbar Text
+-->
+    <string name="toolbar_text">H E A D L I N E S</string>
+    <string name="please_wait">Please wait...</string>
+    <string name="error_msg">Something went wrong, Please try again later.....</string>
+</resources>

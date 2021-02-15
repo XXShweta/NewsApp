@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="EBProgressBar">
+
+        <attr name="ebBackgroundColor" format="color" />
+        <attr name="ebProgressBarColor" format="color" />
+        <attr name="ebTextColor" format="color" />
+        <attr name="ebTextSize" format="dimension" />
+        <attr name="ebProgressText" format="string" />
+        <attr name="ebProgressTextShow" format="boolean" />
+        <attr name="ebProgressIndeterminate" format="boolean" />
+        <attr name="ebDismisOnScreen" format="boolean" />
+    </declare-styleable>
+</resources>

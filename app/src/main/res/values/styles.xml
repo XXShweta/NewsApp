@@ -1,0 +1,64 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    </style>
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+    
+    <style name="sp_29_roboto_bold_black">
+        <item name="android:gravity">center</item>
+        <item name="android:background">@color/colorBlack</item>
+        <item name="android:textSize">@dimen/twenty_29sp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="sp_29_roboto_regular_white_light">
+        <item name="android:textSize">@dimen/twenty_29sp</item>
+        <item name="android:textColor">@color/colorWhiteLight</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="sp_20_roboto_bold_white_light">
+        <item name="android:textSize">@dimen/twenty_20sp</item>
+        <item name="android:textColor">@color/colorWhiteLight</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="sp_20_roboto_regular_white_light">
+        <item name="android:textSize">@dimen/twenty_20sp</item>
+        <item name="android:textColor">@color/colorWhiteLight</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="sp_14_roboto_regular_grey_light">
+        <item name="android:textSize">@dimen/forteen_14sp</item>
+        <item name="android:textColor">@color/colorGreyLight</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="sp_12_roboto_bold_grey_light">
+        <item name="android:textSize">@dimen/twelve_12sp</item>
+        <item name="android:textColor">@color/colorGreyLight</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="sp_12_roboto_regular_grey_light">
+        <item name="android:textSize">@dimen/twelve_12sp</item>
+        <item name="android:textColor">@color/colorGreyLight</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+
+
+</resources>

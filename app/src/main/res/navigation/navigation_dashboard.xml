@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/navigation_graph"
+            app:startDestination="@id/newsFragment">
+
+
+    <fragment android:id="@+id/newsFragment"
+              android:name="com.newsapp.ui.view.fragment.NewsFragment"
+              android:label="News List"
+              tools:layout="@layout/fragment_news">
+        <action android:id="@+id/action_newsFragment_to_newsDetailFragment"
+            app:destination="@id/newsDetailFragment"/>
+
+    </fragment>
+
+    <fragment android:id="@+id/newsDetailFragment"
+        android:name="com.newsapp.ui.view.fragment.NewsDetailFragment"
+        android:label="News Detail"
+        tools:layout="@layout/fragment_news_detail">
+
+        <argument android:name="Repo"
+            app:argType="com.newsapp.services.model.response.Article"
+            />
+
+        <action android:id="@+id/action_newsDetailFragment_to_newsFragment"
+            app:destination="@id/newsFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/navigation_graph"
+            app:popUpToInclusive="true"/>
+
+    </fragment>
+
+</navigation>

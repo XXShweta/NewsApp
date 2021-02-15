@@ -1,0 +1,93 @@
+apply plugin: 'com.android.application'
+apply plugin: 'androidx.navigation.safeargs'
+
+android {
+    compileSdkVersion rootProject.ext.androidCompileSdkVersion
+    defaultConfig {
+        applicationId rootProject.ext.applicationId
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+        testInstrumentationRunner rootProject.ext.testInstrumentationRunner
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation":
+                                     "$projectDir/schemas".toString()]
+            }
+        }
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "BASE_URL", '"https://newsapi.org/v2/"'
+            buildConfigField "String", "API_KEY", '"1e033ff60e8b405281a67a27ccab67e1"'
+
+        }
+
+        debug {
+            minifyEnabled false
+            buildConfigField "String", "BASE_URL", '"https://newsapi.org/v2/"'
+            buildConfigField "String", "API_KEY", '"1e033ff60e8b405281a67a27ccab67e1"'
+        }
+
+    }
+    dataBinding {
+        enabled = true
+    }
+    sourceSets {
+        main.res.srcDirs = ["src/main/res", "src/main/res-by-feature"]
+        main {
+            file("src/main/res-by-feature")
+                    .listFiles()
+                    .each { res.srcDirs += it.path }
+        }
+        debug.assets.srcDirs = ["src/debug/assets/"]
+        release.assets.srcDirs = ["src/release/assets/"]
+    }
+
+}
+
+dependencies {
+    def appDependencies = rootProject.ext.appDependencies
+    def testDependencies = rootProject.ext.testDependencies
+    def daggerDependencies = rootProject.ext.daggerDependencies
+    def networkDependencies = rootProject.ext.networkDependencies
+    def jetpackArchitectureDependencies = rootProject.ext.jetpackArchitectureDependencies
+
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation appDependencies.constraintLayout
+    //Dagger
+    implementation daggerDependencies.dagger
+    implementation daggerDependencies.daggerAndroidSupport
+    annotationProcessor daggerDependencies.daggerAnnotation
+    annotationProcessor daggerDependencies.daggerAndroidProcessor
+    // OkHttp
+    implementation networkDependencies.okhttp
+    implementation networkDependencies.okhttpLogging
+    // Gson
+    implementation networkDependencies.gson
+    implementation networkDependencies.retrofitGsonConverter
+    //Jetpack Components
+    implementation jetpackArchitectureDependencies.navigationFragment
+    implementation jetpackArchitectureDependencies.navigationUi
+    implementation jetpackArchitectureDependencies.lifecycleExtensions
+    implementation jetpackArchitectureDependencies.rxAndroid
+    implementation jetpackArchitectureDependencies.roomRuntime
+    implementation jetpackArchitectureDependencies.rxRoom
+    annotationProcessor jetpackArchitectureDependencies.roomAnotation
+
+    //Glide
+    implementation appDependencies.glide
+    annotationProcessor appDependencies.glideCompiler
+    testImplementation testDependencies.junit
+    androidTestImplementation testDependencies.testRunner
+    androidTestImplementation testDependencies.espressoCore
+
+    testImplementation testDependencies.artifact
+    testImplementation testDependencies.assertJLibrary
+    testImplementation testDependencies.mockitoCore
+    testImplementation testDependencies.junit
+}

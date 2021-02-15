@@ -1,0 +1,102 @@
+<layout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View"/>
+
+        <variable
+            name="newsDetailViewModel"
+            type="com.newsapp.ui.viewmodel.NewsDetailViewModel"/>
+
+    </data>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/detailLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <ImageView
+                    android:id="@+id/imglistItemBg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:maxHeight="@dimen/zero_0dp"
+                    android:src="@{newsDetailViewModel.backGroundImage}"
+                    android:scaleType="centerCrop" />
+
+                <Button
+                    android:id="@+id/backButton"
+                    android:layout_width="@dimen/fortytwo_42dp"
+                    android:layout_height="@dimen/fortytwo_42dp"
+                    android:layout_marginTop="@dimen/twelve_12dp"
+                    android:layout_marginLeft="@dimen/twentyfour_24dp"
+                    android:background="@drawable/carat_back"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/title_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/twentyfour_24dp"
+                    android:layout_marginRight="@dimen/twentyfour_24dp"
+                    android:layout_marginTop="@dimen/hundred_100dp"
+                    android:text="@{newsDetailViewModel.selectedRepo.getValue().getTitle()}"
+                    android:visibility='@{newsDetailViewModel.selectedRepo.getValue().getTitle()!= null ? View.VISIBLE : View.GONE }'
+                    style="@style/sp_29_roboto_regular_white_light"
+                    app:layout_constraintTop_toBottomOf="@+id/backButton"
+                    />
+
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/twentyfour_24dp"
+                    android:layout_marginTop="@dimen/sixtyfour_64dp"
+                    android:layout_marginRight="@dimen/twentyfour_24dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/title_text">
+
+                    <TextView
+                        android:id="@+id/author_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@{newsDetailViewModel.selectedRepo.getValue().getAuthor()}"
+                        android:visibility='@{newsDetailViewModel.selectedRepo.getValue().getAuthor()!= null ? View.VISIBLE : View.GONE }'
+                        style="@style/sp_20_roboto_bold_white_light"
+                        />
+
+                    <TextView
+                        android:id="@+id/date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@{newsDetailViewModel.selectedRepo.getValue().getPublishedAt().substring(0,10)}"
+                        android:visibility='@{newsDetailViewModel.selectedRepo.getValue().getPublishedAt()!= null ? View.VISIBLE : View.GONE }'
+                        style="@style/sp_20_roboto_regular_white_light"
+                        />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/twentyfour_24dp"
+                    android:layout_marginTop="@dimen/sixteen_16dp"
+                    android:layout_marginRight="@dimen/twentyfour_24dp"
+                    android:text="@{newsDetailViewModel.selectedRepo.getValue().getDescription()}"
+                    android:visibility='@{newsDetailViewModel.selectedRepo.getValue().getDescription()!= null ? View.VISIBLE : View.GONE }'
+                    style="@style/sp_14_roboto_regular_grey_light"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

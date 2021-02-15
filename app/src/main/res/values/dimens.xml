@@ -1,0 +1,20 @@
+<resources>
+    <dimen name="zero_0dp">0dp</dimen>
+    <dimen name="one_1dp">1dp</dimen>
+    <dimen name="hundred_100dp">100dp</dimen>
+    <dimen name="ten_10dp">10dp</dimen>
+    <dimen name="fortytwo_42dp">42dp</dimen>
+    <dimen name="twelve_12dp">12dp</dimen>
+    <dimen name="twentyfour_24dp">24dp</dimen>
+    <dimen name="sixtyfour_64dp">64dp</dimen>
+    <dimen name="sixteen_16dp">16dp</dimen>
+    <dimen name="two_hundred_200dp">200dp</dimen>
+
+    <!--Text Size Font-->
+
+    <dimen name="twenty_29sp">29sp</dimen>
+    <dimen name="twelve_12sp">12sp</dimen>
+    <dimen name="twenty_20sp">20sp</dimen>
+    <dimen name="forteen_14sp">14sp</dimen>
+
+</resources>

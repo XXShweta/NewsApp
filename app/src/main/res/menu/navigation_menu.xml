@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="com.newsapp.ui.view.activity.MainActivity">
+    <group android:id="@+id/groupTest">
+        <item         android:id="@+id/testFragment"
+                      android:title="Test"
+                      android:orderInCategory="102"
+                      app:showAsAction="never"/>
+    </group>
+    <group android:id="@+id/groupUpdate">
+        <item         android:id="@+id/upgradeFragment"
+                      android:title="Upgrade App"
+                      android:orderInCategory="103"
+                      app:showAsAction="never"/>
+    </group>
+</menu>
